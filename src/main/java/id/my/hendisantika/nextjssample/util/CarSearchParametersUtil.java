@@ -3,6 +3,9 @@ package id.my.hendisantika.nextjssample.util;
 import id.my.hendisantika.nextjssample.model.CarSearchParameters;
 import org.springframework.util.StringUtils;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-nextjs-sample
@@ -131,6 +134,13 @@ public class CarSearchParametersUtil {
         public int getEnd() {
             return end;
         }
+    }
+
+    public static Date getDateFromCustomDate(String input) {
+        int days = extractDays(input);
+        LocalDate currentDate = LocalDate.now();
+        LocalDate targetDate = currentDate.minusDays(days);
+        return Date.valueOf(targetDate);
     }
 }
 
