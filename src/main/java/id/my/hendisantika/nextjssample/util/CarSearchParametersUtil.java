@@ -142,6 +142,11 @@ public class CarSearchParametersUtil {
         LocalDate targetDate = currentDate.minusDays(days);
         return Date.valueOf(targetDate);
     }
+
+    public static int extractDays(String input) {
+        String number = input.replaceAll("\\D+", "");
+        return Integer.parseInt(number);
+    }
 }
 
 
