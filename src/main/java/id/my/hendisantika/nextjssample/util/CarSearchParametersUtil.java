@@ -70,4 +70,14 @@ public class CarSearchParametersUtil {
 
         return parameters;
     }
+
+    public static Range splitStringIntoRange(String input) {
+        String[] parts = input.split("\\s*-\\s*");
+        if (parts.length == 1) {
+            return null;
+        } else {
+            int start = Integer.parseInt(parts[0]);
+            int end = Integer.parseInt(parts[1]);
+            return new Range(start, end);
+        }
 }
