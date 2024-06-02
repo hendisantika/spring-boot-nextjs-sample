@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-nextjs-sample
@@ -18,4 +20,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsedCarSalesRepository extends JpaRepository<UsedCarSales, Long>,
         JpaSpecificationExecutor<UsedCarSales> { // Added JpaSpecificationExecutor
+
+    List<UsedCarSales> findByMake(String make);
 }
