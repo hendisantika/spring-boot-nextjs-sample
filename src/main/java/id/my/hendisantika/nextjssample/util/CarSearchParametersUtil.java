@@ -107,6 +107,12 @@ public class CarSearchParametersUtil {
         int end = parseDistance(parts[1]);
         return new DistanceRange(start, end);
     }
+
+    public static int parseDistance(String distanceStr) {
+        // Remove "km" from the distance string and trim any whitespace
+        distanceStr = distanceStr.replaceAll("[^\\d]", "").trim();
+        return Integer.parseInt(distanceStr);
+    }
 }
 
 
