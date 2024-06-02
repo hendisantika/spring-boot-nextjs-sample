@@ -100,6 +100,13 @@ public class CarSearchParametersUtil {
             return end;
         }
     }
+
+    public static DistanceRange splitOdometerIntoRange(String input) {
+        String[] parts = input.split("\\s*-\\s*");
+        int start = parseDistance(parts[0]);
+        int end = parseDistance(parts[1]);
+        return new DistanceRange(start, end);
+    }
 }
 
 
