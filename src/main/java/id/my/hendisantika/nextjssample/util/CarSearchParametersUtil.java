@@ -159,6 +159,58 @@ public class CarSearchParametersUtil {
             return "";
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println(splitStringIntoRange("1990 - 2000").getStart());
+
+        String input = "0 - 5000 km";
+        DistanceRange range = splitOdometerIntoRange(input);
+        System.out.println("Start Distance: " + range.getStart());
+        System.out.println("End Distance: " + range.getEnd());
+
+        String input1 = "Last 7 days";
+        String input2 = "Last 15 days";
+
+        Date date1 = getDateFromCustomDate(input1);
+        Date date2 = getDateFromCustomDate(input2);
+
+        System.out.println("Date from " + input1 + ": " + date1);
+
+        String input_age = "Sort by Age";
+        String input_date = "Sort by Sale Date";
+        String input_odo = "Sort by Odometer";
+
+        String property1 = getPropertyFromSortString(input_age);
+        String property2 = getPropertyFromSortString(input_date);
+        String property3 = getPropertyFromSortString(input_odo);
+
+        System.out.println("Property from " + input_age + ": " + property1);
+        System.out.println("Property from " + input_date + ": " + property2);
+        System.out.println("Property from " + input_odo + ": " + property3);
+    }
+
+    //    Maker: AUDI
+//    Model: A5
+//    Year: 1990 - 2000
+//    Odometer: 0 - 5000 km
+//    Vehicle Condition: Excellent
+//    States: ACT
+//    Custom Date: Last 7 days
+//    Sale Category: Auction
+//    Badges: 30 TFSI
+//    Body Type: Hatchback
+//    Body Type Config: (Blank)
+//        Fuel Type: Diesel
+//    Transmission: Automatic
+//    Engine: 1.0
+//    Cylinders: 3
+//    Division: Motor Vehicles
+//    Drive: Front Wheel Drive
+//    Seat: 4
+//    Doors: 3
+//    Description: abc
+//    Sort: Sort by Age
+//    Ascending: ASC
 }
 
 
