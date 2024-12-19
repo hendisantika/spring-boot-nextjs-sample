@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:8.4.0
+    image: mysql:9.1.0
     restart: always
     environment:
       MYSQL_DATABASE: 'carsDB'
@@ -18,7 +18,9 @@ services:
       - '3306'
       # Where our data will be persisted
     volumes:
-      - my-db:/var/lib/mysql
+      - ./carsDB:/var/lib/mysql
+      #      - ./src/main/resources/sql:/docker-entrypoint-initdb.d
+      - ./db/data.sql:/docker-entrypoint-initdb.d/init.sql
   # Names our volume
 volumes:
   my-db:

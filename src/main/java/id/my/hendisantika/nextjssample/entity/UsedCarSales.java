@@ -67,7 +67,7 @@ public class UsedCarSales {
     @Column(name = "colour", length = 10)
     private String colour;
 
-    @Column(name = "engine", length = 32)
+    @Column(name = "engine", length = 100)
     private String engine;
 
     @Column(name = "transmission", length = 100)
