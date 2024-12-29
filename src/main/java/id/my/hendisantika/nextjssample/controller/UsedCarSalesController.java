@@ -7,6 +7,7 @@ import id.my.hendisantika.nextjssample.model.ResponseStatus;
 import id.my.hendisantika.nextjssample.service.UsedCarSalesService;
 import id.my.hendisantika.nextjssample.util.CarSearchParametersUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
  * Time: 07.42
  * To change this template use File | Settings | File Templates.
  */
-@RestController
+@Slf4j
 @CrossOrigin
+@RestController
 @RequestMapping("/api/cars")
 @RequiredArgsConstructor
 public class UsedCarSalesController {
@@ -62,7 +64,7 @@ public class UsedCarSalesController {
                     badges, bodyType, bodyTypeConfig, fuelType, transmission, engine, cylinders, division,
                     drive, seat, doors, description, sort, asc);
 
-            System.out.println(carSearchParameters);
+            log.info("carSearchParameters {}", carSearchParameters);
 
             return new Response(ResponseStatus.SUCCESS, ResponseMessage.SUCCESS,
                     usedCarSalesService.findByParameter(carSearchParameters));
