@@ -152,7 +152,7 @@ public class CarSearchParametersUtil {
         if (sortString.equals("Sort by Age")) {
             return "year";
         } else if (sortString.equals("Sort by Sale Date")) {
-            return "sale date";
+            return "saledate";
         } else if (sortString.equals("Sort by Odometer")) {
             return "odometer";
         } else {
