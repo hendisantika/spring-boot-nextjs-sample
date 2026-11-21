@@ -1,13 +1,65 @@
 version: 2
 updates:
-  - package-ecosystem: maven
+  # Maven dependencies (pom.xml)
+  - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
+      interval: "daily"
+      time: "05:00"
+      timezone: "Asia/Jakarta"
     open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "java"
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
+      include: "scope"
+    groups:
+      spring-boot:
+        patterns:
+          - "org.springframework.boot*"
+          - "org.springframework*"
+      testcontainers:
+        patterns:
+          - "org.testcontainers*"
+      maven-plugins:
+        patterns:
+          - "org.apache.maven.plugins*"
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions used in .github/workflows
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+      time: "05:00"
+      timezone: "Asia/Jakarta"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci(deps)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # Docker images used in compose.yaml
+  - package-ecosystem: "docker-compose"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+      timezone: "Asia/Jakarta"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "build(docker)"
