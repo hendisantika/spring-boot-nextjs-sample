@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:9.1.0
+    image: mysql:26.10.0
     restart: always
     environment:
       MYSQL_DATABASE: 'carsDB'
